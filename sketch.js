@@ -11,6 +11,11 @@ function preload(){
   CH2 =loadImage("Treasure Hunt/character 2.PNG")
   PA =loadImage("Treasure Hunt/play alone.PNG");
   PWF =loadImage("Treasure Hunt/pwf.PNG");
+  map =loadImage("Treasure Hunt/map.PNG");
+  map1 =loadImage("Treasure Hunt/map1.png");
+  map2 =loadImage("Treasure Hunt/map 2.PNG");
+  map3 =loadImage("Treasure Hunt/map 3.PNG");
+  map4 =loadImage("Treasure Hunt/map 4.PNG");
 }
 
 function setup() {
@@ -98,6 +103,26 @@ if(gameState === 1){
 if(gameState === 2){
   background("blue");
 }
+if(gameState === 3){
+  background(map)
+  textSize(50)
+  fill("white");
+  text("be far from imposters and every level has a safe point",displayWidth/2-550,displayHeight/2-200)
+  text("complete all task to go to the next level",displayWidth/2-450,displayHeight/2-100)
+  text("to complete the game you need to find the treasure",displayWidth/2-550,displayHeight/2)
+  text("click on the start button to start the game",displayWidth/2-450,displayHeight/2+100)
+  start=createButton('START');
+  start.position(displayWidth/2+450,displayHeight/2+200);
+  
+  start.mousePressed(()=>{
+    gameState = 4;
+   start.hide();
+  })
+}
+if(gameState === 4){
+  background(map1);
+  start.hide();
+}
   
  
   textSize(20);
@@ -105,3 +130,4 @@ if(gameState === 2){
   text(mouseX+","+mouseY,mouseX,mouseY); 
   drawSprites();
 }
+
